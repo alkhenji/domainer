@@ -49,3 +49,16 @@ var app = {
 };
 
 app.initialize();
+
+function check(){
+    
+   var myNewTitle = document.getElementById('domain').value;
+   if( myNewTitle.length==0 ){
+       alert('Write Some real Text please.');
+   return;
+   }
+   
+   var title = document.getElementById('avalibility');
+   title.innerHTML = myNewTitle;
+    
+}
