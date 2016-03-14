@@ -54,7 +54,7 @@ function check(){
   var myNewTitle = document.getElementById('domain').value;
 
   if( myNewTitle.length==0 ){
-    alert('Write Some real Text please.');
+    alert('Enter a real domain please.');
     return;
   }
 
@@ -68,7 +68,8 @@ function check(){
     
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
-      alert("Got here");
+      // alert("Got here");
+      // It gets here when the request is clear and ready
       return xmlhttp.responseText;
     }
   }

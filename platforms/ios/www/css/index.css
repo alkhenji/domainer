@@ -25,9 +25,9 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:linear-gradient(top, #0083bf 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #0083bf 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #0083bf 0%, #E4E4E4 51%);
     background-image:-webkit-gradient(
         linear,
         left top,
@@ -36,12 +36,11 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family:'HelveticaNeue', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
@@ -54,8 +53,11 @@ body {
     width:225px;                   /* text area width */
     text-align:center;
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    margin:-120px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+    background-color: white;
+	border-style: solid;
+	border-radius: 4px;
+	border-color: #0083bf;                                   /* offset horizontal: half of text area width */
 }
 
 /* Landscape layout (with min-width) */
@@ -64,8 +66,37 @@ body {
         background-position:left center;
         padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
         margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
+                                 /* offset horizontal: half of image width and text area width */
+									 
     }
+}
+
+input[type=text], select {
+	-webkit-appearance: none;
+    width: 70%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	text-size: 20px;
+}
+
+input[type=submit] {
+	-webkit-appearance: none;
+    width: 70%;
+    background-color: #0083bf;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    font-size:20px;
+}
+
+#form{
+	margin-top: -160px;
 }
 
 h1 {
@@ -73,6 +104,16 @@ h1 {
     font-weight:normal;
     margin:0px;
     overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+h2 {
+    font-size:22px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+	text-transform: lowercase;
     padding:0px;
     text-align:center;
 }
