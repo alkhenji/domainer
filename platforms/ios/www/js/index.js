@@ -59,6 +59,6 @@ function check(){
    }
    
    var title = document.getElementById('avalibility');
-   title.innerHTML = myNewTitle;
+   title.innerHTML = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+"&username=linglinlal&password=pass4lal";
     
 }
