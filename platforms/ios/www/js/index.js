@@ -51,14 +51,40 @@ var app = {
 app.initialize();
 
 function check(){
+  var myNewTitle = document.getElementById('domain').value;
+
+  if( myNewTitle.length==0 ){
+    alert('Write Some real Text please.');
+    return;
+  }
+
+  if (window.XMLHttpRequest){
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { 
+    // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
     
-   var myNewTitle = document.getElementById('domain').value;
-   if( myNewTitle.length==0 ){
-       alert('Write Some real Text please.');
-   return;
-   }
-   
-   var title = document.getElementById('avalibility');
-   title.innerHTML = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+"&username=linglinlal&password=pass4lal";
-    
+  xmlhttp.onreadystatechange=function(){
+    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+      alert("Got here");
+      return xmlhttp.responseText;
+    }
+  }
+
+  // var fetch_from = "http://whois.domaintools.com/" + myNewTitle + ".com";
+
+  var fetch_from = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+"&username=linglinlal&password=pass4lal";
+
+  var title = document.getElementById('avalibility');
+
+  xmlhttp.open("GET", fetch_from, false );
+  xmlhttp.send();
+
+  // alert("Got here 22");
+
+  title.innerHTML = xmlhttp.responseText;
+
+  // title.innerHTML = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+"&username=linglinlal&password=pass4lal";
 }
