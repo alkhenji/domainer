@@ -54,7 +54,7 @@ function check(){
   var myNewTitle = document.getElementById('domain').value;
 
   if( myNewTitle.length==0 ){
-    alert('Write Some real Text please.');
+    alert('Enter a real domain please.');
     return;
   }
 
