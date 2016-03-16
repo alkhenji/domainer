@@ -1,21 +1,77 @@
 <!DOCTYPE html>
+
 <html>
-    <head>	
-        <script type="text/javascript" src="js/index.js"></script>	
-        
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+<head>
+  <meta charset="utf-8">
+  <title>Domainer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <link rel="stylesheet" type="text/css" href="style/normalize.css">
+  <link rel="stylesheet" type="text/css" href="style/framework.css">
+  <link rel="stylesheet" type="text/css" href="style/washington.css">
+  
+  
+  <script type="text/javascript" src="js/index.js"></script>	
+  
+  
+  <script src="javascript/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="javascript/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="images/logoStandford32.ico">
+  <link rel="apple-touch-icon" href="images/logoStandford32.ico">
 
-        <!-- Latest compiled and minified CSS -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+  <link href="style/ionicons.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <section class="w-section mobile-wrapper">
 
-        <title>Domainer</title>
-    </head>
-    <body>
-        <div class="app">
-            <h3>Enter a domain name: </h3>
-            <input type="text" id="domain"/>
-            <input type="submit" id="byBtn" value="Check" onclick="check()"/>
-            <div class="avalibility">Hello</div>
+    <div class="page-content" id="main-stack" data-scroll="0">
+      <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+        <div class="w-container">
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">Domainer</div>
+          <a class="w-inline-block navbar-button" href="login.html" data-load="1">
+            <div class="navbar-button-icon icon ion-ios-close-empty"></div>
+          </a>
         </div>
-    </body>
+      </div>
+      <div class="body padding">
+        <div class="logo-login smaller"></div>
+        <div class="bottom-section padding">
+          <div class="w-form">
+              <div>
+                <label class="label-form" for="full-name-field">Enter a domain name: </label>
+                <input class="w-input input-form" id="domain" type="text" name="full-name" data-name="full-name" required="required">
+              </div>
+	    
+
+              <input class="w-button action-button" type="submit" value="Check" onclick="check()">
+			  
+		  		</br>
+				</br>
+				</br>
+				</br>
+	
+              <div id="avalibility"></div>
+			 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-content loading-mask" id="new-stack">
+      <div class="loading-icon">
+        <div class="navbar-button-icon icon ion-load-d"></div>
+      </div>
+    </div>
+  </section>
+  <script type="text/javascript" src="javascript/jquery.min.js"></script>
+  <script type="text/javascript" src="javascript/framework.js"></script>
+  <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
+</body>
 </html>
