@@ -48,6 +48,18 @@ body {
     clear:both;
 }
 
+#com-availability{
+    clear:both;
+}
+
+#net-availability{
+    clear:both;
+}
+
+#qa-availability{
+    clear:both;
+}
+
 /* Portrait layout (default) */
 .app {
     position:absolute;             /* position in the center of the screen */

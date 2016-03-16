@@ -51,6 +51,7 @@ var app = {
 app.initialize();
 
 function check(){
+  document.getElementById('maybe').innerHTML = "Checking...";
   var myNewTitle = document.getElementById('domain').value;
 
   if( myNewTitle.length==0 ){
@@ -68,14 +69,33 @@ function check(){
     
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
-      // alert("Got here");
       // It gets here when the request is clear and ready
+      document.getElementById('maybe').innerHTML = "Checking...";
+
+      document.getElementById('yes').innerHTML = "";
+      document.getElementById('no').innerHTML = "";
+
+      maybe = xmlhttp.responseText.match("invalid domain");
+      if (maybe){
+        var s = "There was an error processing your request.";
+        s+= "The domain name "+ myNewTitle + " is not a valid domain name.";
+        document.getElementById('maybe').innerHTML = xmlhttp.responseText;
+        return xmlhttp.responseText;
+      }
+
+      result = xmlhttp.responseText.match("UNAVAILABLE");
+      if (result){
+        document.getElementById('maybe').innerHTML = "";
+        document.getElementById('no').innerHTML = xmlhttp.responseText;
+      } else {
+        document.getElementById('maybe').innerHTML = "";
+        document.getElementById('yes').innerHTML = xmlhttp.responseText;
+      }
       return xmlhttp.responseText;
     }
   }
 
   // var fetch_from = "http://whois.domaintools.com/" + myNewTitle + ".com";
-
   var fetch_from = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+"&username=linglinlal&password=pass4lal";
 
   var title = document.getElementById('avalibility');
@@ -85,7 +105,7 @@ function check(){
 
   // alert("Got here 22");
 
-  title.innerHTML = xmlhttp.responseText;
+  // title.innerHTML = xmlhttp.responseText;
 
   // title.innerHTML = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+"&username=linglinlal&password=pass4lal";
 }

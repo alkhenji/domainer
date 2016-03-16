@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta charset="utf-8">
@@ -9,11 +8,9 @@
   <link rel="stylesheet" type="text/css" href="style/normalize.css">
   <link rel="stylesheet" type="text/css" href="style/framework.css">
   <link rel="stylesheet" type="text/css" href="style/washington.css">
-  
-  
+
   <script type="text/javascript" src="js/index.js"></script>	
-  
-  
+
   <script src="javascript/webfont.js"></script>
   <script>
     WebFont.load({
@@ -49,16 +46,27 @@
                 <label class="label-form" for="full-name-field">Enter a domain name: </label>
                 <input class="w-input input-form" id="domain" type="text" name="full-name" data-name="full-name" required="required">
               </div>
-	    
+              <input class="w-button action-button" type="submit" value="Check" onclick="check();">
+    		  		<br/>
+              <br/>
+              <br/>
+              <br/>
 
-              <input class="w-button action-button" type="submit" value="Check" onclick="check()">
-			  
-		  		</br>
-				</br>
-				</br>
-				</br>
-	
               <div id="avalibility"></div>
+
+              <div id="com-avalibility">
+                <p id="maybe" style="color:orange;"></p>
+                <p id="yes" style="color:green;"></p>
+                <p id="no" style="color:red;"></p>
+              </div>
+
+              <div id="net-avalibility">
+                
+              </div>
+
+              <div id="qa-avalibility">
+                
+              </div>
 			 
           </div>
         </div>
