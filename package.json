@@ -1,0 +1,24 @@
+{
+  "name": "domainer",
+  "version": "1.0.0",
+  "description": "Domain checker app for Host.qa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alkhenji/domainer.git"
+  },
+  "keywords": [
+    "domain",
+    "checker",
+    "host.qa"
+  ],
+  "author": "Abdulla AlKhenji & Abdulrahman Takiddin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alkhenji/domainer/issues"
+  },
+  "homepage": "https://github.com/alkhenji/domainer#readme"
+}

@@ -48,14 +48,32 @@ var app = {
     }
 };
 
+
 app.initialize();
 
-function check(){
+
+function reset_messages(){
+  var no = document.getElementsByClassName('no');
+  var yes = document.getElementsByClassName('yes');
+  for (i=0;i<3;i++){
+    no[i].innerHTML = "";
+    yes[i].innerHTML = "";
+  }
+  document.getElementById('maybe').innerHTML = "";
+  return;
+};
+
+function check(extension){
+  if (typeof extension === 'undefined') { extension = '.com'; }
+  // var extension = ".com";
+
+  reset_messages();
   document.getElementById('maybe').innerHTML = "Checking...";
+
   var myNewTitle = document.getElementById('domain').value;
 
   if( myNewTitle.length==0 ){
-    alert('Enter a real domain please.');
+    document.getElementById('maybe').innerHTML = "Please enter a valid domain name (without .com or .net etc.)";
     return;
   }
 
@@ -66,14 +84,10 @@ function check(){
     // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-    
+
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
-      // It gets here when the request is clear and ready
-      document.getElementById('maybe').innerHTML = "Checking...";
-
-      document.getElementById('yes').innerHTML = "";
-      document.getElementById('no').innerHTML = "";
+      // It gets here when the request is successful
 
       maybe = xmlhttp.responseText.match("invalid domain");
       if (maybe){
@@ -83,27 +97,42 @@ function check(){
         return xmlhttp.responseText;
       }
 
-      result = xmlhttp.responseText.match("UNAVAILABLE");
-      if (result){
-        document.getElementById('maybe').innerHTML = "";
-        document.getElementById('no').innerHTML = xmlhttp.responseText;
+      var index = 0;
+      if (extension == ".com"){
+        index = 0;
+      } else if (extension == ".net"){
+        index = 1;
       } else {
-        document.getElementById('maybe').innerHTML = "";
-        document.getElementById('yes').innerHTML = xmlhttp.responseText;
+        index = 2;
       }
+
+      result = xmlhttp.responseText.match("UNAVAILABLE");
+      if (result){ // domain unavailable, do something?
+        document.getElementById('maybe').innerHTML = "";
+        document.getElementsByClassName('no')[index].innerHTML = "Ouch.. The domain ("+myNewTitle+extension+") is not available.";
+      } else { // domain available
+        document.getElementById('maybe').innerHTML = "";
+        document.getElementsByClassName('yes')[index].innerHTML = "Congrats! Your domain ("+myNewTitle+extension+") is available!";
+      }
+
+      if (extension === ".com"){ return check(".net"); }
+      if (extension === ".net"){ return check(".qa"); }
+
       return xmlhttp.responseText;
     }
   }
 
+  var fetch_from = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+extension+"&username=linglinlal&password=pass4lal";
   // var fetch_from = "http://whois.domaintools.com/" + myNewTitle + ".com";
-  var fetch_from = "https://www.whoisxmlapi.com/whoisserver/WhoisService?cmd=GET_DN_AVAILABILITY&domainName="+myNewTitle+"&username=linglinlal&password=pass4lal";
 
-  var title = document.getElementById('avalibility');
-
-  xmlhttp.open("GET", fetch_from, false );
-  xmlhttp.send();
-
-  // alert("Got here 22");
+  try {
+    xmlhttp.open("GET", fetch_from, false );
+    xmlhttp.send();
+  }
+  catch(err) {
+    reset_messages();
+    document.getElementById('maybe').innerHTML = "There is a network error. Please check your internet connection and try again.";
+  }
 
   // title.innerHTML = xmlhttp.responseText;
 

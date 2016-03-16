@@ -44,7 +44,7 @@
           <div class="w-form">
               <div>
                 <label class="label-form" for="full-name-field">Enter a domain name: </label>
-                <input class="w-input input-form" id="domain" type="text" name="full-name" data-name="full-name" required="required">
+                <input class="w-input input-form" id="domain" type="text" name="full-name" data-name="full-name" required="required" placeholder="example (without .com)">
               </div>
               <input class="w-button action-button" type="submit" value="Check" onclick="check();">
     		  		<br/>
@@ -52,20 +52,23 @@
               <br/>
               <br/>
 
-              <div id="avalibility"></div>
+              <div class="maybe-messages">
+                <p id="maybe" style="color:orange;"></p>
+              </div>
 
               <div id="com-avalibility">
-                <p id="maybe" style="color:orange;"></p>
-                <p id="yes" style="color:green;"></p>
-                <p id="no" style="color:red;"></p>
+                <p class="yes" style="color:green;"></p>
+                <p class="no" style="color:red;"></p>
               </div>
 
               <div id="net-avalibility">
-                
+                <p class="yes" style="color:green;"></p>
+                <p class="no" style="color:red;"></p>
               </div>
 
               <div id="qa-avalibility">
-                
+                <p class="yes" style="color:green;"></p>
+                <p class="no" style="color:red;"></p>
               </div>
 			 
           </div>
