@@ -64,10 +64,8 @@ function reset_messages(){
 };
 
 function check(extension){
-  if (typeof extension === 'undefined') { extension = '.com'; }
+  if (typeof extension === 'undefined') { reset_messages(); extension = '.com'; }
   // var extension = ".com";
-
-  reset_messages();
   document.getElementById('maybe').innerHTML = "Checking...";
 
   var myNewTitle = document.getElementById('domain').value;

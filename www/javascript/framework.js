@@ -95,4 +95,35 @@ $(function() {
             },400);
         }
     };
+
+
+    // Loading Pages
+    setTimeout(function(){
+        $('.loading-mask').addClass('stop-loading');
+    },1);
+    $('[data-load="2"]').click( function(e){
+    	null;
+    });
+    var goToPage = function(hrefPage){
+        setTimeout(function(){
+            $('.loading-mask').removeClass('stop-loading');
+        },1);
+        $.get(hrefPage, function (data) {
+            setTimeout(function(){
+                //document.title = response.pageTitle;
+                window.history.pushState({"html":data,"pageTitle":''},"", hrefPage);
+                $("body").html(data);
+                window.scrollTo(0, 0);
+            },1);
+        });
+    };
+    window.onpopstate = function(e){
+        if(e.state){
+            $('.loading-mask').removeClass('stop-loading');
+            setTimeout(function(){
+                $("body").html(e.state.html);
+                document.title = e.state.pageTitle;
+            },400);
+        }
+    };
 });
